@@ -9,6 +9,15 @@ func init() {
 
     beego.GlobalControllerRouter["FinalProject/BlogApi/controllers:ArticleController"] = append(beego.GlobalControllerRouter["FinalProject/BlogApi/controllers:ArticleController"],
         beego.ControllerComments{
+            Method: "Post",
+            Router: `/`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["FinalProject/BlogApi/controllers:ArticleController"] = append(beego.GlobalControllerRouter["FinalProject/BlogApi/controllers:ArticleController"],
+        beego.ControllerComments{
             Method: "GetAll",
             Router: `/`,
             AllowHTTPMethods: []string{"get"},

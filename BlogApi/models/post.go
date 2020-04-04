@@ -1,6 +1,8 @@
 package models
 
 import (
+	"fmt"
+
 	"github.com/astaxie/beego/orm"
 )
 
@@ -10,6 +12,8 @@ var (
 	CategoryList   []*Categories
 	ExperienceList []*Experience
 )
+
+var Post Posts
 
 func init() {
 
@@ -84,4 +88,16 @@ func GetExperienceAll() []*Experience {
 	o.QueryTable("experience").All((&ExperienceList))
 	return ExperienceList
 
+}
+
+func AddPost(u Posts) string {
+	o := orm.NewOrm()
+	var post Posts
+
+	id, err := o.Insert(&post)
+	if err == nil {
+		fmt.Println(id)
+	}
+
+	return "post"
 }

@@ -2,7 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\BlogApi",
-    "\\BlogApi\\conf"
+    "\\BlogApi\\conf",
+    "\\BlogApi\\controllers",
+    "\\BlogApi\\models"
   ],
+  "SelectedNode": "\\BlogApi\\models\\user.go",
   "PreviewInSolutionExplorer": false
 }

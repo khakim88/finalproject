@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"FinalProject/BlogApi/models"
+	"encoding/json"
 
 	"github.com/astaxie/beego"
 )
@@ -17,13 +18,13 @@ type ArticleController struct {
 // @Success 200 {int} models.User.Id
 // @Failure 403 body is empty
 // @router / [post]
-// func (u *ArticleController) Post() {
-// 	var user models.User
-// 	json.Unmarshal(u.Ctx.Input.RequestBody, &user)
-// 	uid := models.AddUser(user)
-// 	u.Data["json"] = map[string]string{"uid": uid}
-// 	u.ServeJSON()
-// }
+func (u *ArticleController) Post() {
+	var posts models.Posts
+	json.Unmarshal(u.Ctx.Input.RequestBody, &posts)
+	uid := models.AddPost(posts)
+	u.Data["json"] = map[string]string{"uid": uid}
+	u.ServeJSON()
+}
 
 // @Title GetAll
 // @Description get all Users
